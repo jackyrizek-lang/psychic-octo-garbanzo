@@ -472,6 +472,22 @@ function discover() {
 function creatorMessage() {
   alert('Creator registration will be coming soon!');
 }
+<div class="modal" id="dishModal">
+  <div class="modal-content">
+    <button class="close-btn" onclick="closeDish()">✕</button>
+
+    <img id="modalImage" src="" alt="Dish">
+
+    <span class="tag" id="modalCategory"></span>
+    <h2 id="modalTitle"></h2>
+    <p id="modalDescription"></p>
+    <p id="modalIngredients"></p>
+    <p id="modalCreator"></p>
+    <h3 id="modalPrice"></h3>
+
+    <button onclick="addToCart()">Add to cart</button>
+  </div>
+</div>
 </script>
 
 </body>
