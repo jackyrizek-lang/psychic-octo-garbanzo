@@ -466,8 +466,41 @@ function filterCategory(category) {
     card.style.display = !category || categories.includes(category) ? '' : 'none';
   });
 }
+let selectedDish = null;
+let cartCount = 0;
+
 function discover() {
-  alert('Dish details and ordering will be coming soon!');
+  const card = event.currentTarget.closest('.food-card');
+
+  selectedDish = {
+    image: card.querySelector('img').src,
+    category: card.querySelector('.tag').innerText,
+    title: card.querySelector('h3').innerText,
+    description: card.querySelector('p').innerText,
+    price: card.querySelector('.price').innerText
+  };
+
+  document.getElementById('modalImage').src = selectedDish.image;
+  document.getElementById('modalCategory').innerText = selectedDish.category;
+  document.getElementById('modalTitle').innerText = selectedDish.title;
+  document.getElementById('modalDescription').innerText = selectedDish.description;
+  document.getElementById('modalIngredients').innerText =
+    'Ingredients and dish information will be provided by the food creator.';
+  document.getElementById('modalCreator').innerText =
+    'Made by an independent food creator.';
+  document.getElementById('modalPrice').innerText = selectedDish.price;
+
+  document.getElementById('dishModal').style.display = 'flex';
+}
+
+function closeDish() {
+  document.getElementById('dishModal').style.display = 'none';
+}
+
+function addToCart() {
+  cartCount++;
+  alert('Added to cart! Items in your cart: ' + cartCount);
+  closeDish();
 }
 function creatorMessage() {
   alert('Creator registration will be coming soon!');
